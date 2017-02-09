@@ -31,6 +31,7 @@ class HomeDataSourceController: DatasourceController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return section == 0 ? CGSize(width: view.frame.width, height: 64) : .zero
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -51,6 +52,11 @@ class HomeDataSourceController: DatasourceController {
             return CGSize(width: view.frame.width, height: estimatedFrame.height + 66)
         }
         return CGSize(width: view.frame.width, height: 200)
+    }
+    
+    //handling landscape mode
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
     }
 }
 

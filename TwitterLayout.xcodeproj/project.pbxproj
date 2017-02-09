@@ -20,6 +20,7 @@
 		7BA187471E4C1AFE008DEF35 /* HomeDataSourceController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA187461E4C1AFE008DEF35 /* HomeDataSourceController+NavBar.swift */; };
 		7BA187491E4C2492008DEF35 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA187481E4C2492008DEF35 /* HeaderCell.swift */; };
 		7BA1874B1E4C25BB008DEF35 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1874A1E4C25BB008DEF35 /* TweetCell.swift */; };
+		7BA1874D1E4CE20B008DEF35 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1874C1E4CE20A008DEF35 /* Tweet.swift */; };
 		EF0DD1FD28A1230270A29CFD /* Pods_TwitterLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B4E32FEBF10E6A794178BB /* Pods_TwitterLayout.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		7BA187461E4C1AFE008DEF35 /* HomeDataSourceController+NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeDataSourceController+NavBar.swift"; sourceTree = "<group>"; };
 		7BA187481E4C2492008DEF35 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		7BA1874A1E4C25BB008DEF35 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		7BA1874C1E4CE20A008DEF35 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		B1B51F7197880008CC6605D2 /* Pods-TwitterLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterLayout.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterLayout/Pods-TwitterLayout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			children = (
 				7B44FEC51E41744B00066815 /* HomeDataSource.swift */,
 				7BA187421E4C0403008DEF35 /* User.swift */,
+				7BA1874C1E4CE20A008DEF35 /* Tweet.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				7BA187451E4C0972008DEF35 /* UserCell.swift in Sources */,
 				7B44FEBB1E4165A300066815 /* WordCell.swift in Sources */,
 				7B44FEC61E41744B00066815 /* HomeDataSource.swift in Sources */,
+				7BA1874D1E4CE20B008DEF35 /* Tweet.swift in Sources */,
 				7B44FEBD1E416E2B00066815 /* HomeDataSourceController.swift in Sources */,
 				7BA1874B1E4C25BB008DEF35 /* TweetCell.swift in Sources */,
 				7B44FEAB1E41621200066815 /* HomeVC.swift in Sources */,

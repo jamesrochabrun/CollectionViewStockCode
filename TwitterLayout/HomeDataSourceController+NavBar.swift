@@ -15,9 +15,27 @@ extension HomeDataSourceController {
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
         
+        ///removing the shado from the bottom navbar and customizing it
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        let navBarSeparatorView = UIView()
+        navBarSeparatorView.backgroundColor = UIColor.lightGray
+        view.addSubview(navBarSeparatorView)
+        navBarSeparatorView.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0.5)
+        
         setUpRightNavItems()
         setUpLeftNavItems()
         setUpRemainingNavItems()
+        
+        
+        let screenHeight = UIScreen.main.bounds.size.height
+        let screenViewFrameHeight = view.frame.size.height
+        let screenViewBoundHeight = view.bounds.size.height
+        let collectionframeheight = collectionView?.frame.size.height
+        let collectioBoundsheight = collectionView?.bounds.size.height
+        
+        
+        print("screenHeight = \(screenHeight) \nscreenViewFrameHeight = \(screenViewFrameHeight) \nscreenViewBoundHeight = \(screenViewBoundHeight) \ncollectionframeheight = \(collectionframeheight) /ncollectioBoundsheight = \(collectioBoundsheight)")
     }
     
     private func setUpRightNavItems() {

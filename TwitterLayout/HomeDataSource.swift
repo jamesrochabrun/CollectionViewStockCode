@@ -16,8 +16,12 @@ class HomeDataSource: Datasource {
         return [jamesUser, sasha]
     }()
     
-    let tweets = ["tweet1", "tweer2"]
-    
+    lazy var tweets: [Tweet] = {
+        let tweet1 = Tweet(user: self.users[0], message: "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,")
+        let tweet2 = Tweet(user: self.users[1], message: "El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de de Finibus Bonorum et Malorum")
+        return [tweet1, tweet2]
+        
+    }()
     
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [UserHeader.self]
@@ -30,7 +34,7 @@ class HomeDataSource: Datasource {
         return section == 0 ? users.count : tweets.count
     }
     override func item(_ indexPath: IndexPath) -> Any? {
-        return users[indexPath.item]
+        return indexPath.section == 0 ? users[indexPath.item] : tweets[indexPath.row]
     }
     
     override func footerClasses() -> [DatasourceCell.Type]? {
