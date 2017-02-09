@@ -1,51 +1,24 @@
 //
-//  Cells.swift
+//  UserCell.swift
 //  TwitterLayout
 //
-//  Created by James Rochabrun on 1/31/17.
+//  Created by James Rochabrun on 2/8/17.
 //  Copyright © 2017 James Rochabrun. All rights reserved.
 //
 
+import Foundation
 import LBTAComponents
-
-class UserHeader: DatasourceCell {
-    
-    let textLabel: UILabel = {
-       let label = UILabel()
-        label.text = "WHO TO FOLLOW"
-        label.font = UIFont.systemFont(ofSize: 16)
-        return label
-    }()
-    
-    override func setupViews() {
-        super.setupViews()
-        addSubview(textLabel)
-        //textLabel.fillSuperview()
-        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-    }
-}
-
-class UserFooter: DatasourceCell {
-    
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Show me more"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.cyan
-        return label
-    }()
-    
-    override func setupViews() {
-        super.setupViews()
-        addSubview(textLabel)
-        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)    }
-}
 
 class UserCell: DatasourceCell {
     
+    
     override var datasourceItem: Any? {
         didSet {
-            nameLabel.text = datasourceItem as? String
+            guard let user = datasourceItem as? User else {return}
+            nameLabel.text  = user.name
+            userNameLabel.text = user.username
+            bioTextView.text = user.bioText
+            profileImageView.image = user.profileImage
         }
     }
     
@@ -54,7 +27,7 @@ class UserCell: DatasourceCell {
         imageView.image = UIImage(named: "james")
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
-       // imageView.clipsToBounds = true
+        // imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -76,7 +49,7 @@ class UserCell: DatasourceCell {
     }()
     
     let bioTextView: UITextView = {
-       let textView = UITextView()
+        let textView = UITextView()
         textView.text = "iphone ipad ios programming the best, now working in swift 3"
         textView.font = UIFont.systemFont(ofSize: 15)
         textView.backgroundColor = UIColor.clear
@@ -104,6 +77,10 @@ class UserCell: DatasourceCell {
         addSubview(userNameLabel)
         addSubview(bioTextView)
         addSubview(followButton)
+        separatorLineView.isHidden = false
+        separatorLineView.backgroundColor = UIColor.lightGray
+        //self.backgroundColor = .blue
+        backgroundColor = .white
         
         profileImageView.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         nameLabel.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: followButton.leftAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 12, widthConstant: 0, heightConstant: 20)
