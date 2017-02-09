@@ -21,6 +21,7 @@
 		7BA187491E4C2492008DEF35 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA187481E4C2492008DEF35 /* HeaderCell.swift */; };
 		7BA1874B1E4C25BB008DEF35 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1874A1E4C25BB008DEF35 /* TweetCell.swift */; };
 		7BA1874D1E4CE20B008DEF35 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1874C1E4CE20A008DEF35 /* Tweet.swift */; };
+		7BA187501E4D2CD9008DEF35 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1874F1E4D2CD9008DEF35 /* Service.swift */; };
 		EF0DD1FD28A1230270A29CFD /* Pods_TwitterLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B4E32FEBF10E6A794178BB /* Pods_TwitterLayout.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		7BA187481E4C2492008DEF35 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		7BA1874A1E4C25BB008DEF35 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		7BA1874C1E4CE20A008DEF35 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		7BA1874F1E4D2CD9008DEF35 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		B1B51F7197880008CC6605D2 /* Pods-TwitterLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterLayout.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterLayout/Pods-TwitterLayout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 		7B44FEBF1E41739000066815 /* LBTAComponent */ = {
 			isa = PBXGroup;
 			children = (
+				7BA1874E1E4D2CC2008DEF35 /* Services */,
 				7B44FEC21E4173E600066815 /* View */,
 				7B44FEC11E4173DF00066815 /* Model */,
 				7B44FEC01E4173D200066815 /* Controller */,
@@ -145,6 +148,14 @@
 				7BA187441E4C0972008DEF35 /* UserCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		7BA1874E1E4D2CC2008DEF35 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7BA1874F1E4D2CD9008DEF35 /* Service.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		A748BCF86931F42CBC0FBAF8 /* Frameworks */ = {
@@ -279,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA187451E4C0972008DEF35 /* UserCell.swift in Sources */,
+				7BA187501E4D2CD9008DEF35 /* Service.swift in Sources */,
 				7B44FEBB1E4165A300066815 /* WordCell.swift in Sources */,
 				7B44FEC61E41744B00066815 /* HomeDataSource.swift in Sources */,
 				7BA1874D1E4CE20B008DEF35 /* Tweet.swift in Sources */,
@@ -406,7 +418,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 02C3E41010081010AD28E43C /* Pods-TwitterLayout.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ULU46F325W;
 				INFOPLIST_FILE = TwitterLayout/Info.plist;
@@ -421,7 +433,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1B51F7197880008CC6605D2 /* Pods-TwitterLayout.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ULU46F325W;
 				INFOPLIST_FILE = TwitterLayout/Info.plist;

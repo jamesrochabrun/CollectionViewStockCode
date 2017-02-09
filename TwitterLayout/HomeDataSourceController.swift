@@ -7,7 +7,8 @@
 //
 
 import LBTAComponents
-
+import TRON
+import SwiftyJSON
 
 
 class HomeDataSourceController: DatasourceController {
@@ -15,9 +16,10 @@ class HomeDataSourceController: DatasourceController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor.lightGray
-        let homeDataSource = HomeDataSource()
-        self.datasource = homeDataSource
         setUpNavigationBarItems()
+        Service.sharedInstance.fetchHomeFeed { (homeDataSource) in
+            self.datasource = homeDataSource
+        }
     }
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

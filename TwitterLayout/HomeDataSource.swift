@@ -7,14 +7,30 @@
 //
 
 import LBTAComponents
+import SwiftyJSON
+import TRON
 
-class HomeDataSource: Datasource {
+//this is the provider of data
+class HomeDataSource: Datasource, JSONDecodable  {
     
-    let users: [User] = {
-        let jamesUser = User(name: "james", username: "james123", bioText: "iosdev", profileImage:#imageLiteral(resourceName: "james"))
-        let sasha = User(name: "sasha", username: "@sasha", bioText: "linda esto es un est necesito saber la estimacion de la altura de la celda para medir esto  ;kdjfh;wh ;jke h;jkwh ;wejkh we;h we;fjkh we;kfh w;efjkh w;ekfjh we;jkh we;jkfh we;kjh w;ekh w;ekfjh w;h ejkwf ek;h kjwhf ;jkwehf jkwehf jkwehf; khwef;k jhwef;k hwe;fkh  ;wkjhf ;kejwhf ;ejkwhf ;kh ;jkwhefjk hwefk; j", profileImage:#imageLiteral(resourceName: "james"))
-        return [jamesUser, sasha]
-    }()
+    //2 create a model that will catch the succes json response
+    let users: [User]
+    
+    required init(json: JSON) throws {
+        
+        var users = [User]()
+        
+        if  let array = json["users"].array {
+            for userJson in array {
+                let name = userJson["name"].stringValue
+                let userName = userJson["username"].stringValue
+                let bio = userJson["bio"].stringValue
+                let user = User(name: name, username: userName, bioText: bio, profileImage: UIImage())
+                users.append(user)
+            }
+        }
+        self.users = users
+    }
     
     lazy var tweets: [Tweet] = {
         let tweet1 = Tweet(user: self.users[0], message: "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,")

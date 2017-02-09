@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7D9E2A098F59F0BB88C811D9847BB33"
+               BlueprintIdentifier = "8600354D2AEB6D77282C3B99DF0B3EB2"
                BuildableName = "Pods_TwitterLayout.framework"
                BlueprintName = "Pods-TwitterLayout"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7D9E2A098F59F0BB88C811D9847BB33"
+            BlueprintIdentifier = "8600354D2AEB6D77282C3B99DF0B3EB2"
             BuildableName = "Pods_TwitterLayout.framework"
             BlueprintName = "Pods-TwitterLayout"
             ReferencedContainer = "container:Pods.xcodeproj">
