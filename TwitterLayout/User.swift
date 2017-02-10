@@ -14,4 +14,6 @@ struct User {
     let username: String
     let bioText: String
     let profileImage: UIImage
+    
+    
 }

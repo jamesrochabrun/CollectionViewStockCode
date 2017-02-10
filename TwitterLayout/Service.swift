@@ -29,7 +29,7 @@ struct Service {
         request.perform(withSuccess: { (homeDataSource) in
             completion(homeDataSource)
         }) { (err) in
-            print("failed: ", err)
+            print("FAILED TRON REQUEST HOME FEED: ", err)
         }
     }
     
