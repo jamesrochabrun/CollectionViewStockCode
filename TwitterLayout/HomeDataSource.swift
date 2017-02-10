@@ -15,29 +15,34 @@ class HomeDataSource: Datasource, JSONDecodable  {
     
     //2 create a model that will catch the succes json response
     let users: [User]
+    let tweets: [Tweet]
     
     required init(json: JSON) throws {
         
-        var users = [User]()
+//        var users = [User]()
+//        if  let array = json["users"].array {
+//            for userJson in array {
+//                let user = User(json: userJson)
+//                users.append(user)
+//            }
+//        }
+//        self.users = users
+        //USING A MAP FUNCTION TO PARSE JSON
+        let usersJsonArray = json["users"].array  //else {return }
+        self.users = usersJsonArray!.map({User(json: $0)})
         
-        if  let array = json["users"].array {
-            for userJson in array {
-                let name = userJson["name"].stringValue
-                let userName = userJson["username"].stringValue
-                let bio = userJson["bio"].stringValue
-                let user = User(name: name, username: userName, bioText: bio, profileImage: UIImage())
-                users.append(user)
-            }
-        }
-        self.users = users
+        let tweetsJsonArray = json["tweets"].array
+        self.tweets = tweetsJsonArray!.map({Tweet(json: $0)})
+
+//        var tweets = [Tweet]()
+//        if let tweetsJsonArray = json["tweets"].array {
+//            for tweetJson in tweetsJsonArray {
+//                let tweet = Tweet(json: tweetJson)
+//                tweets.append(tweet)
+//            }
+//        }
+//        self.tweets = tweets
     }
-    
-    lazy var tweets: [Tweet] = {
-        let tweet1 = Tweet(user: self.users[0], message: "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,")
-        let tweet2 = Tweet(user: self.users[1], message: "El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de de Finibus Bonorum et Malorum")
-        return [tweet1, tweet2]
-        
-    }()
     
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [UserHeader.self]
