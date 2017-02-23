@@ -22,14 +22,14 @@ struct Service {
     //3 go to step 2 in Homedatasource class and create a succes class that handles the response
     
     //4 create a method to fecth json with a completion block
-    func fetchHomeFeed(completion: @escaping (HomeDataSource) -> ()) {
+    func fetchHomeFeed(completion: @escaping (HomeDataSource?, Error?) -> ()) {
         //generic type
         let request: APIRequest<HomeDataSource, JSONError> = tron.request("/twitter/home")
         
         request.perform(withSuccess: { (homeDataSource) in
-            completion(homeDataSource)
+            completion(homeDataSource, nil)
         }) { (err) in
-            print("FAILED TRON REQUEST HOME FEED: ", err)
+            completion(nil, err)
         }
     }
     

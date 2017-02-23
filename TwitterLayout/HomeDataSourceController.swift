@@ -12,12 +12,35 @@ import SwiftyJSON
 
 
 class HomeDataSourceController: DatasourceController {
+    
+    let errorMessageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "sory something went wrong"
+        label.textAlignment = .center
+        label.isHidden = true
+        label.numberOfLines = 0
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(errorMessageLabel)
+        errorMessageLabel.fillSuperview() //lbta method
+        
         collectionView?.backgroundColor = UIColor.lightGray
         setUpNavigationBarItems()
-        Service.sharedInstance.fetchHomeFeed { (homeDataSource) in
+        Service.sharedInstance.fetchHomeFeed { (homeDataSource, error) in
+            if let err = error {
+                self.errorMessageLabel.isHidden = false
+                
+                if let apiError = err as? APIError<Service.JSONError> {
+                    
+                    if apiError.response?.statusCode != 200 {
+                        self.errorMessageLabel.text = "Status code was not 200"
+                    }
+                }
+            }
             self.datasource = homeDataSource
         }
     }

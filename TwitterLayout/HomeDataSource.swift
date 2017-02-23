@@ -29,11 +29,15 @@ class HomeDataSource: Datasource, JSONDecodable  {
 //        }
 //        self.users = users
         //USING A MAP FUNCTION TO PARSE JSON
-        let usersJsonArray = json["users"].array  //else {return }
-        self.users = usersJsonArray!.map({User(json: $0)})
+        guard let usersJsonArray = json["users"].array else {
+            throw NSError(domain: "com.startap", code: 1, userInfo: [NSLocalizedDescriptionKey: "users json not valid structure"])
+        }
+        self.users = usersJsonArray.map({User(json: $0)})
         
-        let tweetsJsonArray = json["tweets"].array
-        self.tweets = tweetsJsonArray!.map({Tweet(json: $0)})
+        guard let tweetsJsonArray = json["tweets"].array else {
+            throw NSError(domain: "com.startap", code: 1, userInfo: [NSLocalizedDescriptionKey: "tweets json not valid structure"])
+        }
+        self.tweets = tweetsJsonArray.map({Tweet(json: $0)})
 
 //        var tweets = [Tweet]()
 //        if let tweetsJsonArray = json["tweets"].array {
