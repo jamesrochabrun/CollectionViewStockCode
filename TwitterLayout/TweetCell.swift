@@ -14,6 +14,8 @@ class TweetCell: DatasourceCell {
         didSet {
             guard let tweet = datasourceItem as? Tweet else {return}
             
+            profileImageView.loadImage(urlString: tweet.user.profileImageURL)
+            
             let attributedText = NSMutableAttributedString(string: tweet.user.name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)])
             
             let userNameString = "  \(tweet.user.username)\n"
@@ -30,12 +32,12 @@ class TweetCell: DatasourceCell {
         }
     }
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let profileImageView: CachedImageView = {
+        let imageView = CachedImageView()
         imageView.image = UIImage(named: "james")
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
-        // imageView.clipsToBounds = true
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -116,7 +118,6 @@ class TweetCell: DatasourceCell {
         let buttonStackView = UIStackView(arrangedSubviews: [replyButttonContainerView, retweetButtonContainerView, likeButtonContainerView, messageButtonContainerView])
         buttonStackView.axis = .horizontal
         buttonStackView.distribution = .fillEqually
-        
         addSubview(buttonStackView)
         buttonStackView.anchor(nil, left: messageTextView.leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant:0, leftConstant: 0, bottomConstant: 4, rightConstant: 0, widthConstant: 0, heightConstant: 20)
         

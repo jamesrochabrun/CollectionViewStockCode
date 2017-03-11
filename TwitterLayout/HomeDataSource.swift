@@ -10,6 +10,23 @@ import LBTAComponents
 import SwiftyJSON
 import TRON
 
+//GENERICS
+
+//Constraininig this array extension to contain just JSON items inside
+//a - Collection represents an array,
+//b - IS constrained to a type JSON , only JSON objects can work for type
+
+extension Collection where Iterator.Element == JSON {
+    
+    //c - her the type conforms the protocol Jsondecodable T can be USER or Tweet that also conform to that protocol,
+    func decode<T: JSONDecodable>() throws -> [T] {
+        //now T have access to the json method
+        return try map{ try T(json: $0)}
+    }
+}
+
+//remember Json and jsondecodable are "the same", one is a class and the other a protocol, the method.array returns items JSON
+
 
 //this is the provider of data
 class HomeDataSource: Datasource, JSONDecodable  {
@@ -20,33 +37,17 @@ class HomeDataSource: Datasource, JSONDecodable  {
     
     required init(json: JSON) throws {
         
-//        var users = [User]()
-//        if  let array = json["users"].array {
-//            for userJson in array {
-//                let user = User(json: userJson)
-//                users.append(user)
-//            }
-//        }
-//        self.users = users
-        //USING A MAP FUNCTION TO PARSE JSON
         guard let usersJsonArray = json["users"].array else {
             throw NSError(domain: "com.startap", code: 1, userInfo: [NSLocalizedDescriptionKey: "users json not valid structure"])
         }
-        self.users = usersJsonArray.map({User(json: $0)})
+        //decode can be able to infer the type User because we alreday assign it to the array constants
+        self.users = try usersJsonArray.decode()
         
         guard let tweetsJsonArray = json["tweets"].array else {
             throw NSError(domain: "com.startap", code: 1, userInfo: [NSLocalizedDescriptionKey: "tweets json not valid structure"])
         }
-        self.tweets = tweetsJsonArray.map({Tweet(json: $0)})
-
-//        var tweets = [Tweet]()
-//        if let tweetsJsonArray = json["tweets"].array {
-//            for tweetJson in tweetsJsonArray {
-//                let tweet = Tweet(json: tweetJson)
-//                tweets.append(tweet)
-//            }
-//        }
-//        self.tweets = tweets
+        //decode can be able to infer the type Tweet because we alreday assign it to the array constants
+        self.tweets = try tweetsJsonArray.decode()
     }
     
     override func headerClasses() -> [DatasourceCell.Type]? {

@@ -11,23 +11,21 @@ import LBTAComponents
 
 class UserCell: DatasourceCell {
     
-    
     override var datasourceItem: Any? {
         didSet {
             guard let user = datasourceItem as? User else {return}
             nameLabel.text  = user.name
             userNameLabel.text = user.username
             bioTextView.text = user.bioText
-            profileImageView.image = user.profileImage
+            profileImageView.loadImage(urlString: user.profileImageURL)
         }
     }
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "james")
+    let profileImageView: CachedImageView = {
+        let imageView = CachedImageView()
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
-        // imageView.clipsToBounds = true
+        imageView.clipsToBounds = true
         return imageView
     }()
     
