@@ -51,31 +51,31 @@ class TweetCell: DatasourceCell {
     
     let replyButton: UIButton = {
        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.setImage(#imageLiteral(resourceName: "send").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         return button
     }()
     
     let retweeetButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.setImage(#imageLiteral(resourceName: "retweet").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
 
         return button
     }()
     
     let likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.setImage(#imageLiteral(resourceName: "heart").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
 
         return button
     }()
     
     let messageButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.setImage(#imageLiteral(resourceName: "mail").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
 
         return button
     }()

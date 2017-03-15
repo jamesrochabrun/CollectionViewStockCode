@@ -41,12 +41,12 @@ extension HomeDataSourceController {
     private func setUpRightNavItems() {
         
         let searchButton = UIButton(type: .system)
-        searchButton.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        searchButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        searchButton.setImage(#imageLiteral(resourceName: "zoom").withRenderingMode(.alwaysOriginal), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         
         let composeButton = UIButton(type: .system)
-        composeButton.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        composeButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        composeButton.setImage(#imageLiteral(resourceName: "ink").withRenderingMode(.alwaysOriginal), for: .normal)
+        composeButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: searchButton), UIBarButtonItem(customView: composeButton)]
     }
@@ -54,16 +54,16 @@ extension HomeDataSourceController {
     private func setUpLeftNavItems() {
         
         let followButton = UIButton(type: .system)
-        followButton.setImage(#imageLiteral(resourceName: "3dglasses").withRenderingMode(.alwaysOriginal), for: .normal)
-        followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        followButton.setImage(#imageLiteral(resourceName: "profile").withRenderingMode(.alwaysOriginal), for: .normal)
+        followButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
     }
     
     private func setUpRemainingNavItems() {
         
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "3dglasses"))
-        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "twitter"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView?.bounds = titleImageView.frame //THIS FIX NEED RESEARCH
         navigationItem.titleView = titleImageView
